@@ -24,6 +24,7 @@ A simple reddit clone using .NET 7 and Angular.
 
 # Planned features
 <ul>
+  <li>UI Implementation.</li>
   <li>Search Post API.</li>
   <li>Like/Dislike feature of a post/comment.</li>
   <li>Pagination for Post and Comments List APIs</li>
