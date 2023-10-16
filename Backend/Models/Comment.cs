@@ -11,6 +11,7 @@ namespace Backend.Models
         public string Content { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
         public int PostId { get; set; }
+        public string Username { get; set; } = string.Empty;
         public Post? Post { get; set; }
         public User? User { get; set; }
     }

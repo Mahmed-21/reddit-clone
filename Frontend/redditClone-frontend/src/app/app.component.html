@@ -1,0 +1,19 @@
+<div class="header">
+  <a href="/"><img src="../assets/Unreadit_logo.png" alt="Reddit Logo" class="logo"></a>
+  <div class="search-bar">
+    <input type="text" placeholder="Search...">
+    <button>Search</button>
+  </div>
+  <div class="actions">
+    <button class="login" *ngIf="!isAuth" routerLink="/login">Login</button>
+    <button class="register" *ngIf="!isAuth" routerLink="/register">Register</button>
+    <button class="logout" *ngIf="isAuth" (click)="authService.logout()" routerLink="/logout" >Logout</button>
+  </div>
+</div>
+  
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+
+  

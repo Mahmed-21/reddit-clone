@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\MrKing\\Desktop\\ATLG\\Development\\reddit-clone\\Backend\\Backend.csproj": {}
+    "C:\\Users\\MrKing\\Desktop\\ATLG\\Development\\reddit-clone\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "c:\\Users\\MrKing\\Desktop\\ATLG\\Development\\reddit-clone\\Backend\\Backend.csproj": {
+    "C:\\Users\\MrKing\\Desktop\\ATLG\\Development\\reddit-clone\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\MrKing\\Desktop\\ATLG\\Development\\reddit-clone\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\MrKing\\Desktop\\ATLG\\Development\\reddit-clone\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "c:\\Users\\MrKing\\Desktop\\ATLG\\Development\\reddit-clone\\Backend\\Backend.csproj",
+        "projectPath": "C:\\Users\\MrKing\\Desktop\\ATLG\\Development\\reddit-clone\\Backend\\Backend.csproj",
         "packagesPath": "C:\\Users\\MrKing\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\MrKing\\Desktop\\ATLG\\Development\\reddit-clone\\Backend\\obj\\",
+        "outputPath": "C:\\Users\\MrKing\\Desktop\\ATLG\\Development\\reddit-clone\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\MrKing\\AppData\\Roaming\\NuGet\\NuGet.Config"

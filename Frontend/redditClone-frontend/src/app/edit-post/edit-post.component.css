@@ -1,0 +1,26 @@
+.container {
+    background-color: #2d2d2d;
+    color: #ffffff; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    margin: auto;
+  }
+  
+  .form-control {
+    background-color: #363636;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .btn-primary {
+    background-color: #3333B3;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #181888;
+    color: #f5f5f5d1;
+  }

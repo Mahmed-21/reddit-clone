@@ -27,6 +27,7 @@ namespace Backend.Services.PostService
             var post = _mapper.Map<Post>(newPost);
             post.User = await _context.Users.FirstOrDefaultAsync(u => u.Id == GetUserId());
             post.UserId = GetUserId();
+            post.Username = post.User!.Username;
             post.CreatedAt = DateTime.Now;
             
             _context.Posts.Add(post);

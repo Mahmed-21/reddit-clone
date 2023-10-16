@@ -28,6 +28,13 @@ namespace Backend.Controllers
         {
             return Ok(await _commentService.GetAllComments(postId));
         }
+
+        [HttpGet("post/{postId}/comment/{commentId}")]
+        public async Task<ActionResult<ServiceResponse<GetCommentDto>>> GetComment(int postId, int commentId) 
+        {
+            return Ok(await _commentService.GetCommentById(postId, commentId));
+        }
+
         [Authorize]
         [HttpPost("post/{postId}/comment")]
         public async Task<ActionResult<ServiceResponse<List<GetCommentDto>>>> AddComment(AddCommentDto newComment, int postId)
@@ -36,9 +43,9 @@ namespace Backend.Controllers
         }
         [Authorize]
         [HttpPut("post/{postId}/comment/{commentId}")]
-        public async Task<ActionResult<ServiceResponse<List<GetCommentDto>>>> UpdateComment(int commentId, UpdateCommentDto updatedComment)
+        public async Task<ActionResult<ServiceResponse<List<GetCommentDto>>>> UpdateComment(int postId, int commentId, UpdateCommentDto updatedComment)
         {
-            var response  = await _commentService.UpdateComment(commentId, updatedComment);
+            var response  = await _commentService.UpdateComment(postId, commentId, updatedComment);
             if (response.Data is null)
             {
                 return NotFound(response);
@@ -47,9 +54,9 @@ namespace Backend.Controllers
         }
         [Authorize]
         [HttpDelete("post/{postId}/{commentId}")]
-        public async Task<ActionResult<ServiceResponse<GetCommentDto>>> DeleteComment(int commentId) 
+        public async Task<ActionResult<ServiceResponse<GetCommentDto>>> DeleteComment(int postId, int commentId) 
         {
-            var response  = await _commentService.DeleteComment(commentId);
+            var response  = await _commentService.DeleteComment(postId, commentId);
             if (response.Data is null)
             {
                 return NotFound(response);

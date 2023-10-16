@@ -12,5 +12,6 @@ namespace Backend.Dtos.Comment
         public DateTime CreatedAt { get; set; }
         public int PostId { get; set; }
         public int UserId { get; set; } 
+        public string Username { get; set; } = string.Empty; 
     }
 }

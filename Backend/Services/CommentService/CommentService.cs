@@ -37,6 +37,7 @@ namespace Backend.Services.CommentService
             comment.PostId = postId;
             comment.Post = post;
             comment.User = await _context.Users.FirstOrDefaultAsync(u => u.Id == GetUserId());
+            comment.Username = comment.User!.Username;
             comment.CreatedAt = DateTime.Now;
             
             _context.Comments.Add(comment);
@@ -50,7 +51,7 @@ namespace Backend.Services.CommentService
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<GetCommentDto>>> DeleteComment(int commentId)
+        public async Task<ServiceResponse<List<GetCommentDto>>> DeleteComment(int postId, int commentId)
         {
             var serviceResponse = new ServiceResponse<List<GetCommentDto>>();
 
@@ -82,7 +83,7 @@ namespace Backend.Services.CommentService
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<GetCommentDto>> UpdateComment(int commentId, UpdateCommentDto updatedComment)
+        public async Task<ServiceResponse<GetCommentDto>> UpdateComment(int postId, int commentId, UpdateCommentDto updatedComment)
         {
             var serviceResponse = new ServiceResponse<GetCommentDto>();
 
@@ -102,6 +103,23 @@ namespace Backend.Services.CommentService
                 serviceResponse.Message = ex.Message;
             }
 
+            return serviceResponse;
+        }
+
+        public async Task<ServiceResponse<GetCommentDto>> GetCommentById(int postId, int commentId)
+        {
+           var serviceResponse = new ServiceResponse<GetCommentDto>();
+
+            try{
+            var comment = await _context.Comments.Include(c => c.User).FirstAsync(c => c.Id == commentId);
+
+            if(comment is null){
+                throw new Exception("Comment not found.");
+            }
+            serviceResponse.Data = _mapper.Map<GetCommentDto>(comment);} catch(Exception ex){
+                serviceResponse.Success = false;
+                serviceResponse.Message = ex.Message;
+            }
             return serviceResponse;
         }
     }

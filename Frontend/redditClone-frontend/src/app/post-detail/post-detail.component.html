@@ -1,0 +1,37 @@
+<div class="container mt-4" *ngIf="post">
+    <div class="card">
+        <div class="card-body">
+            <div class="user-info">
+                by {{ post.username }} on {{ post.createdAt | date:'medium' }}
+            </div>
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.content }}</p>
+        </div>
+    </div>
+    
+    <h3 class="mt-4">Comments</h3>
+    
+    <div class="card mt-4" *ngIf="isAuth">
+        <div class="card-body">
+            <h5 class="card-title">Add Comment</h5>
+            <form (submit)="onSubmit()">
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" [(ngModel)]="newComment.content" name="content" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Add a Comment</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="card" *ngFor="let comment of comments">
+        <div class="card-body">
+            <div class="user-info">
+                by {{ comment.username }} on {{ comment.createdAt | date:'medium' }}
+                <button class ="edit" *ngIf="isAuth && comment.username === authService.isUser" [routerLink]="['/editComment', postId, comment.id]">Edit</button>
+                <button class ="delete" *ngIf="isAuth && comment.username === authService.isUser" (click)="deleteComment(comment.id)">Delete</button>
+            </div>
+            <p class="card-text">{{ comment.content }}</p>
+        </div>
+    </div>
+</div>
+  
